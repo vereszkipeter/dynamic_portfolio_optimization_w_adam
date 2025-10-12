@@ -17,17 +17,17 @@ st.set_page_config(
 # --- Kétnyelvű Tartalom ---
 TRANSLATIONS = {
     "hu": {
-        "page_title": "Dinamikus portfólió optimalizáció elemző",
+        "page_title": "Dinamikus portfólió optimalizáció eredmények",
         "intro_text": """
-        Ez az interaktív alkalmazás a BVAR-SV + Entrópia Pooling + Többperiódusos Optimalizáció munkafolyamat eredményeit mutatja be.
-        A lenti ábrák és táblázatok segítségével felfedezheti a hatékonysági frontot, és részletesen megvizsgálhatja az egyes optimális portfóliók időbeli allokációs pályáját és konvergenciáját.
+        Ez az interaktív alkalmazás a BVAR-SV + Entrópia Pooling + Többperiódusos portfólió optimalizáció munkafolyamat eredményeit mutatja be.
+        A lenti ábrák és táblázatok segítségével vizsgálhatod a hatékony frontot, és részletesen megvizsgálhatja az egyes optimális portfóliók időbeli allokációs pályáját és konvergenciáját.
         """,
         "sidebar_header": "Vezérlőpult",
         "language_select": "Nyelv",
-        "portfolio_select": "Válasszon egy portfóliót a részletes elemzéshez:",
+        "portfolio_select": "Válassz egy portfóliót a részletes elemzéshez:",
         "summary_header": "📊 Eredmények áttekintése",
         "diag_table_title": "Diagnosztikai táblázat",
-        "frontier_header": "🗺️ A hatékonysági front",
+        "frontier_header": "🗺️ A hatékony front",
         "frontier_xaxis": "Évesített kockázat (cCVaR)",
         "frontier_yaxis": "Évesített hozam",
         "frontier_points": "Portfólió pontok",
@@ -42,11 +42,11 @@ TRANSLATIONS = {
         "convergence_yaxis": "Veszteség értéke",
         "convergence_legend": "Veszteség típusa",
         "data_error_title": "Hiba az adatfájlok betöltésekor!",
-        "data_error_body": "Nem található a `../data/optimization_results.h5` vagy a `../data/financial_factors_meta.csv.gz` fájl. Kérjük, ellenőrizze az elérési utakat.",
+        "data_error_body": "Nem található a `../data/optimization_results.h5` vagy a `../data/financial_factors_meta.csv.gz` fájl. Kérjük, ellenőrizd az elérési utakat.",
         "what_is_this_title": "Mi ez az alkalmazás?",
     },
     "en": {
-        "page_title": "Dynamic Portfolio Optimization Analyzer",
+        "page_title": "Dynamic Portfolio Optimization Results",
         "intro_text": """
         This interactive application visualizes the results of the BVAR-SV + Entropy Pooling + Multi-Period Optimization workflow.
         Using the charts and tables below, you can explore the efficient frontier and examine the dynamic allocation path and convergence properties of each optimal portfolio in detail.
