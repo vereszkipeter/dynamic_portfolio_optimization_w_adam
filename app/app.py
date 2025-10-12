@@ -8,7 +8,7 @@ from pathlib import Path
 
 # --- Oldal Konfiguráció ---
 st.set_page_config(
-    page_title="Portfólió Optimalizáció Elemző",
+    page_title="Portfólió optimalizáció eredmények",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -19,7 +19,7 @@ TRANSLATIONS = {
     "hu": {
         "page_title": "Dinamikus portfólió optimalizáció eredmények",
         "intro_text": """
-        Ez az interaktív alkalmazás a BVAR-SV + Entrópia Pooling + Többperiódusos portfólió optimalizáció munkafolyamat eredményeit mutatja be.
+        Ez az interaktív alkalmazás a BVAR-MS + Entrópia Pooling + Többperiódusos portfólió optimalizáció munkafolyamat eredményeit mutatja be.
         A lenti ábrák és táblázatok segítségével vizsgálhatod a hatékony frontot, és vizuálisan ellenőrizheted az egyes optimális portfóliók időbeli allokációs pályáját és konvergenciáját.
         """,
         "sidebar_header": "Vezérlőpult",
@@ -48,7 +48,7 @@ TRANSLATIONS = {
     "en": {
         "page_title": "Dynamic Portfolio Optimization Results",
         "intro_text": """
-        This interactive application visualizes the results of the BVAR-SV + Entropy Pooling + Multi-Period Optimization workflow.
+        This interactive application visualizes the results of the BVAR-MS + Entropy Pooling + Multi-Period Optimization workflow.
         Using the charts and tables below, you can explore the efficient frontier and examine the dynamic allocation path and convergence properties of each optimal portfolio in detail.
         """,
         "sidebar_header": "Controls",
