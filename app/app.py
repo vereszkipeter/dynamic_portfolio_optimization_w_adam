@@ -20,7 +20,7 @@ TRANSLATIONS = {
         "page_title": "Dinamikus portfólió optimalizáció eredmények",
         "intro_text": """
         Ez az interaktív alkalmazás a BVAR-SV + Entrópia Pooling + Többperiódusos portfólió optimalizáció munkafolyamat eredményeit mutatja be.
-        A lenti ábrák és táblázatok segítségével vizsgálhatod a hatékony frontot, és részletesen megvizsgálhatja az egyes optimális portfóliók időbeli allokációs pályáját és konvergenciáját.
+        A lenti ábrák és táblázatok segítségével vizsgálhatod a hatékony frontot, és vizuálisan ellenőrizheted az egyes optimális portfóliók időbeli allokációs pályáját és konvergenciáját.
         """,
         "sidebar_header": "Vezérlőpult",
         "language_select": "Nyelv",
