@@ -1,6 +1,7 @@
 streamlit
 pandas
 numpy
-h5py
 plotly
-streamlit-toggle-switch
+arrow
+duckdb
+pyarrow
