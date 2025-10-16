@@ -420,20 +420,20 @@ if active_key == "distribution":
     """
     terminal_wealth_df = run_query(terminal_wealth_query, portfolio_id=int(selected_portfolio_id))
     if not terminal_wealth_df.empty:
-        q99 = terminal_wealth_df['terminal_wealth'].quantile(0.99)
-        plot_df = terminal_wealth_df[terminal_wealth_df['terminal_wealth'] <= q99]
+        #q99 = terminal_wealth_df['terminal_wealth'].quantile(0.99)
+        plot_df = terminal_wealth_df#[terminal_wealth_df['terminal_wealth'] <= q99]
         fig_dist = px.histogram(plot_df, x="terminal_wealth", nbins=100, histnorm='probability density')
         fig_dist.update_layout(
             xaxis_title=t['wealth_dist_xaxis'],
             yaxis_title="Sűrűség" if st.session_state.lang == 'hu' else 'Density'
         )
         st.plotly_chart(fig_dist, width='stretch')
-        st.info(
-            "Megjegyzés: Az ábra a jobb olvashatóság érdekében a terminális vagyonok felső 1%-át nem mutatja."
-            if st.session_state.lang == 'hu'
-            else "Note: For better readability, the top 1% of terminal wealth outcomes are not shown on this chart.",
-            icon="ℹ️"
-        )
+        #st.info(
+        #    "Megjegyzés: Az ábra a jobb olvashatóság érdekében a terminális vagyonok felső 1%-át nem mutatja."
+        #    if st.session_state.lang == 'hu'
+        #    else "Note: For better readability, the top 1% of terminal wealth outcomes are not shown on this chart.",
+        #    icon="ℹ️"
+        #)
 
     st.subheader(f"{t['fanchart_title']} - P{selected_portfolio_id}")
     fanchart_query = """
