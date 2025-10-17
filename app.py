@@ -325,7 +325,7 @@ if active_key == "frontier":
     fig_frontier = px.line(frontier_df.sort_values("annualized_risk_ccvar"), x="annualized_risk_ccvar", y="annualized_return", markers=True, custom_data=['portfolio_id']).add_scatter(x=frontier_df['annualized_risk_ccvar'], y=frontier_df['annualized_return'], mode='text', text=frontier_df['portfolio_id'], textposition='top center', showlegend=False)
     fig_frontier.update_layout(title="<b>" + t['tab_frontier'] + "</b>", xaxis_title=t['frontier_xaxis'], yaxis_title=t['frontier_yaxis'], xaxis_tickformat='.1%', yaxis_tickformat='.1%')
     fig_frontier.update_traces(hovertemplate="<b>Portfolio %{customdata[0]}</b><br>Return: %{y:.2%}<br>Risk (cCVaR): %{x:.2%}<extra></extra>")
-    st.plotly_chart(fig_frontier, width='stretch')
+    st.plotly_chart(fig_frontier)#, width='stretch')
 
 # --- Allokáció és Kényszerek (VÉGLEGES) ---
 if active_key == "allocation":
