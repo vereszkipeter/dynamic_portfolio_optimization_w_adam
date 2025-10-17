@@ -1,8 +1,8 @@
 [client]
-showErrorDetails = "none"
+showErrorDetails = false
 toolbarMode = "minimal"
 
 [deprecation]
 showPyplotGlobalUse = false
-showWarningOnDirectExecution = false
-showPlotlyPersonalizingWarning = false
+#showWarningOnDirectExecution = false
+#showPlotlyPersonalizingWarning = false
