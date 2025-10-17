@@ -318,7 +318,7 @@ if active_key == "historical":
         fig.update_layout(legend_title_text="", xaxis_title=t['date_axis'])
         fig.update_yaxes(title_text=t['indexed_value_axis'], secondary_y=False)
         fig.update_yaxes(title_text=t.get('value_axis', 'Value') if macro_symbols else "", secondary_y=True, showgrid=False)
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig)#, width='stretch')
 
 # --- Hatékony front ---
 if active_key == "frontier":
@@ -340,7 +340,7 @@ if active_key == "allocation":
             fig_weights = px.area(weights_df[weights_df['name'].isin(assets_in_portfolio)], x='date', y='weight', color='name', category_orders={"name": sorted(assets_in_portfolio)}, color_discrete_map=asset_color_map)
             apply_fillcolor_for_area(fig_weights, asset_color_map)
             fig_weights.update_layout(yaxis_tickformat=".0%", legend_title_text="", xaxis_title=t['date_axis'], yaxis_title=t['weight_axis'], legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="right", x=1))
-            st.plotly_chart(fig_weights, width='stretch')
+            st.plotly_chart(fig_weights)#, width='stretch')
     
     with col2:
         st.subheader(t['stats_header'])
@@ -363,7 +363,7 @@ if active_key == "allocation":
             }
             stats_df = pd.DataFrame.from_dict(stats, orient='index', columns=[t['value_col']])
             stats_df.index = pd.MultiIndex.from_tuples(stats_df.index)
-            st.dataframe(stats_df, width='stretch')
+            st.dataframe(stats_df)#, width='stretch')
 
     col3, col4 = st.columns([2, 1], gap="large")
     with col3:
@@ -375,7 +375,7 @@ if active_key == "allocation":
                 fig_pie = px.pie(weights_for_pie, names='name', values='weight', title=f"<b>{pie_title}</b>", color='name', category_orders={"name": sorted(assets_in_portfolio)}, color_discrete_map=asset_color_map)
                 fig_pie.update_traces(textposition='inside', textinfo='percent+label', sort=False)
                 fig_pie.update_layout(showlegend=False, margin=dict(t=40, b=20, l=20, r=20))
-                st.plotly_chart(fig_pie, width='stretch')
+                st.plotly_chart(fig_pie)#, width='stretch')
     with col4:
         st.subheader(t['constraints_title'].format(month=month))
         cs_level = ("Szigorú" if st.session_state.lang == 'hu' else "Strict") if month <= 24 else (("Laza" if st.session_state.lang == 'hu' else "Relaxed") if month <= 48 else ("Nagyon laza" if st.session_state.lang == 'hu' else "Very Relaxed"))
@@ -410,7 +410,7 @@ if active_key == "distribution":
         fig_dist = px.histogram(terminal_wealth_df, x="terminal_wealth", nbins=60, histnorm='probability density', opacity=0.4)
         fig_dist.update_traces(marker_line_color='#1f77b4', marker_line_width=0.75)
         fig_dist.update_layout(xaxis_title=t['wealth_dist_xaxis'], yaxis_title=t.get('density', 'Density'))
-        st.plotly_chart(fig_dist, width='stretch')
+        st.plotly_chart(fig_dist)#, width='stretch')
 
     st.subheader(f"{t['fanchart_title']} - P{selected_portfolio_id}")
     fanchart_df = run_query("""
@@ -450,7 +450,7 @@ if active_key == "distribution":
             go.Scatter(x=dates, y=fanchart_df['p50'], mode='lines', line=dict(color='#1f77b4', width=3), name='Median (P50)')
         ])
         fig_fan.update_layout(yaxis_title=t['value_axis'], xaxis_title=t['date_axis'], legend_title_text="Confidence Interval", hovermode="x unified")
-        st.plotly_chart(fig_fan, width='stretch')
+        st.plotly_chart(fig_fan)#, width='stretch')
 
 # --- Diagnosztika ---
 if active_key == "diagnostics":
@@ -458,7 +458,7 @@ if active_key == "diagnostics":
     diagnostics_df = run_query("SELECT * FROM fact_diagnostics_summary")
     if not diagnostics_df.empty:
         format_mapping = { "Evesitett_Hozam": "{:.2%}", "Evesitett_Kockazat_cCVaR": "{:.2%}", "Evesitett_Std_CVaR": "{:.2%}", "Maximalis_Kenyszer_Sertes": "{:.2e}", "Atlagos_Havi_Forgas": "{:.2%}", "Atlagos_Havi_cCVaR": "{:.2%}", "Maximalis_Havi_cCVaR": "{:.2%}", "Atlagos_Koncentracio_HHI": "{:.3f}" }
-        st.dataframe(diagnostics_df.style.format(format_mapping), width='stretch')
+        st.dataframe(diagnostics_df.style.format(format_mapping))#, width='stretch')
     
     st.subheader(f"{t['convergence_title']} - P{selected_portfolio_id}")
     convergence_df = run_query("SELECT * FROM fact_convergence WHERE portfolio_id = ?", portfolio_id=int(selected_portfolio_id))
@@ -467,4 +467,4 @@ if active_key == "diagnostics":
         default_loss = 'total_loss' if 'total_loss' in loss_types else loss_types[0]
         selected_loss = st.selectbox(t['loss_type_select'], loss_types, index=loss_types.index(default_loss))
         fig_conv = px.line(convergence_df[convergence_df['loss_type'] == selected_loss], x="Epoch", y="value", title=f"{selected_loss}")
-        st.plotly_chart(fig_conv, width='stretch')
+        st.plotly_chart(fig_conv)#, width='stretch')
