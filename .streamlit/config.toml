@@ -7,7 +7,7 @@ textColor="#fafafa"
 font="sans serif"
 
 [client]
-showErrorDetails = false
+showErrorDetails = "none"
 toolbarMode = "minimal"
 
 [deprecation]
